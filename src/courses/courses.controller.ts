@@ -1,7 +1,9 @@
 import { Body, Controller, Get, Param, Post, Res, Patch, Delete, Put, HttpCode, HttpStatus} from '@nestjs/common';
+import { CoursesService } from './courses.service';
 
 @Controller('courses')
 export class CoursesController {
+    constructor(private readonly CourseService: CoursesService) {}
 
     @Get() 
     findAll(@Res() response) {
@@ -14,7 +16,7 @@ export class CoursesController {
         return `Course with id ${id}`;
     }
 
-    @Post()
+    @Post(':id')
     create(@Body() body) {
         return body;
     }
