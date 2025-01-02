@@ -12,7 +12,8 @@ export const dataSourceOptions: DataSourceOptions = {
   password: 'admin',
   database: 'postgres',
   entities: [Course, Tag],
-  synchronize: true, // isso é para ambiente de desenvolvimento, em produção é recomendado desativar
+  // synchronize: true, // isso é para ambiente de desenvolvimento, em produção é recomendado desativar | Pois cria as tabelas automaticamente no banco de dados
+  synchronize: false, // isso é para ambiente de desenvolvimento, em produção é recomendado desativar | Pois cria as tabelas automaticamente no banco de dados
 };
 
 @Module({

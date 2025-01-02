@@ -1,5 +1,12 @@
 
-# se estiver dando erro de sintaxe -> pnpm add eslint@latest --save-dev  # pesquisar oq é uma Bind em Docker
+## synchronize: true, // isso é para ambiente de desenvolvimento, em produção é recomendado desativar | Pois cria as tabelas automaticamente no banco de dados
+## type orm
+## primeiro crie a migracao, com npx typeorm migration:create (src/migrations/courseTable)=> caminho
+## referencie a migration no arquivo de config (aqui no caso é o database/orm-cli-config.ts) no campo migrations: []
+## depois builde o projeto, com pnpm run buildc
+## depois rode a migracao -> npx typeorm migration:run -d (dist/database/orm-cli-config.js)=> caminho da build
+
+## Remove-Item -Recurse -Force .docker\dbdata
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
@@ -56,7 +63,7 @@ $ pnpm run test
 
 # e2e tests
 $ pnpm run test:e2e
-
+# pesquisar oq é uma Bind em Docker
 # test coverage
 $ pnpm run test:cov
 ```
