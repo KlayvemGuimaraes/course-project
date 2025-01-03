@@ -9,13 +9,11 @@ import { Tag } from './entities/tags.entity';
 @Injectable()
 export class CoursesService {
 
-  constructor(
-    @InjectRepository(Course)
-    private readonly courseRepository: Repository<Course>,
+  @InjectRepository(Course)
+  private readonly courseRepository: Repository<Course>
 
-    @InjectRepository(Tag)
-    private readonly TagRepository: Repository<Tag>,
-   ) {} // com esse construtor, o TypeORM injeta o repositório de cursos
+  @InjectRepository(Tag)
+  private readonly tagRepository: Repository<Tag>
 
   async findAll() {
     return this.courseRepository.find({
@@ -76,7 +74,7 @@ export class CoursesService {
 
   private async preLoadTagByName(name: string): Promise<Tag> {
     // verifica se a tag ja existe, se sim, retorna a tag, se nao, cria uma nova tag
-    const tag = await this.TagRepository.findOne({ 
+    const tag = await this.tagRepository.findOne({ 
       where:{
         name
       }
@@ -84,6 +82,6 @@ export class CoursesService {
     if (tag) {
       return tag;
     }
-    return this.TagRepository.create({ name });
+    return this.tagRepository.create({ name });
   }
 }
