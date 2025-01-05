@@ -1,6 +1,7 @@
 .docker
 .env
 anotations.md
+docker-compose.yml
 
 # compiled output
 /dist

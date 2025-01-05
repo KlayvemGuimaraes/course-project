@@ -1,3 +1,4 @@
+# uma possivel atualizacao aqui, é colocar variaveis de ambiente no env e usar o .env para carregar essas variaveis aqui no lugar das credenciais
 version: '3.8'
 
 services:
